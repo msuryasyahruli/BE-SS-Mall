@@ -2,7 +2,7 @@ const Pool = require("../config/db");
 
 const selectAllCart = () => {
   return Pool.query(
-    `SELECT * FROM cart`
+    `SELECT products.*, cart.cart_id FROM products INNER JOIN cart ON cart.product_id = products.product_id;`
   );
 };
 
