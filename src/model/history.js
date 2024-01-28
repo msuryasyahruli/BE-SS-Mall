@@ -2,7 +2,7 @@ const Pool = require("../config/db");
 
 const selectAllHistory = () => {
   return Pool.query(
-    `SELECT * FROM history`
+    `SELECT products.*, history.history_id FROM products INNER JOIN history ON history.product_id = products.product_id`
   );
 };
 
